@@ -49,6 +49,16 @@ def filter_file(file_contents: str, file_path: str) -> bool:
     else:
         return False # skip file
 
+# Hard coded based on what I specifically need
+def remove_filename_prefix(content_dir):
+    for filename in os.listdir(content_dir):
+        if filename.endswith(".md"):
+            filename_new = filename.replace('prj.devblog.posts.', '')
+
+            full_path_current = os.path.join(content_dir, filename)
+            full_path_new = os.path.join(content_dir, filename_new)
+
+            os.rename(full_path_current, full_path_new)
 
 ## CONFIG
     
@@ -75,5 +85,8 @@ obsidian_to_hugo.run()
 links = extract_markdown_links(obsidian_to_hugo.hugo_content_dir)
 # Remove unused files
 remove_files_not_in_links(abs_path_posts, abs_path_static, links)
+
+# Rename files
+remove_filename_prefix(abs_path_posts)
 
 ## TODO remove unused dirs
