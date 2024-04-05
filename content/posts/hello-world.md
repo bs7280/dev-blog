@@ -18,8 +18,11 @@ I found this cool project [devidw/obsidian-to-hugo: Process Obsidian notes to pu
 - Add linked files like images and move them somewhere they can be rendered
 
 ## Build 
+
 `pyscripts/export_obsidian.py`
 
+source:
+[dev-blog/pyscripts/export_obsidian.py at main · bs7280/dev-blog](https://github.com/bs7280/dev-blog/blob/main/pyscripts/export_obsidian.py)
 ## Test 
 
 run:
@@ -29,3 +32,6 @@ then view the site at lhttp://localhost:1313/
 
 ## Publish
 
+simply commit all changes (`git add content/posts/*`) and commit + push
+
+changes should be available almost immediately! Eventually I'd like to automate this as a build pipeline in my private obsidian notes github repo.
