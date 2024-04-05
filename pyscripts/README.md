@@ -7,4 +7,6 @@ Export all notes from `prj.devblog.posts.*` to hugo content
 Also removes all files not linked to in markdown notes, may not work in nested dirs
 
 ### Run
-`python pyscripts/export_obsidian.py` 
+
+Note the python executable path
+`/Users/benshaughnessy/homebrew/bin/python3 pyscripts/export_obsidian.py`
