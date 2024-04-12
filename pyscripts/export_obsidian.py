@@ -33,13 +33,14 @@ def remove_files_not_in_links(directory, static_dir, linked_fnames):
 
         full_path = os.path.join(directory, filename)
         if not filename.endswith(".md") and not os.path.isdir(full_path):
-            if filename not in links:
+            if filename not in linked_fnames:
                 print(f"Removing {filename} from {obsidian_to_hugo.hugo_content_dir}")
                 os.remove(full_path)
             elif ext in (".png", ".jpg", ".jpeg", ".gif"):
-                new_path_image = os.path.join(static_dir, filename)
-                print(f"Moving {filename} to {new_path_image}")
-                os.rename(full_path, new_path_image)
+                if False:
+                    new_path_image = os.path.join(static_dir, filename)
+                    print(f"Moving {filename} to {new_path_image}")
+                    os.rename(full_path, new_path_image)
 
 
 def filter_file(file_contents: str, file_path: str) -> bool:
@@ -48,6 +49,28 @@ def filter_file(file_contents: str, file_path: str) -> bool:
         return True  # copy file
     else:
         return False  # skip file
+
+
+def process_img_link(file_contents: str) -> str:
+
+    import re
+
+    # Input text with the weird broken wiki link
+    # text = 'content: ![Pasted image 20240412165952.png]({{< ref "Pasted image 20240412165952.png" >}})'
+    # Define the regular expression pattern
+    pattern = r"\./([^/]+\.(?:png|jpg|jpeg|gif))"
+
+    # Function to replace the path with a modified version
+    def replace_path(match):
+        original_path = match.group(0)
+        new_path = original_path.replace("./", "/posts/")
+        return new_path
+
+    if re.search(pattern, file_contents):
+        new_text = re.sub(pattern, replace_path, file_contents)
+        breakpoint()
+        return new_text
+    return file_contents
 
 
 # Hard coded based on what I specifically need
@@ -81,6 +104,7 @@ obsidian_to_hugo = ObsidianToHugo(
     obsidian_vault_dir=config_obsidian,
     hugo_content_dir=abs_path_posts,
     filters=[filter_file],
+    # processors=[process_img_link],
 )
 
 obsidian_to_hugo.run()

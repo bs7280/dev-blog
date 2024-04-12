@@ -2,3 +2,7 @@ baseURL = 'https://benshaughnessy.netlify.app/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = 'beautifulhugo'
+
+[[module.mounts]]
+source = 'static'
+target = 'static'

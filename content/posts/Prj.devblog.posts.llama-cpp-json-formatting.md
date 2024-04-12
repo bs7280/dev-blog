@@ -1,6 +1,6 @@
 ---
 id: hu23xt22xmbpk4lj8vr1frv
-title: llama-cpp-json-formatting
+title: llama cpp json formatting
 desc: ""
 created: 1712353924207
 updated: 1712353924207
