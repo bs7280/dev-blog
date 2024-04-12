@@ -37,7 +37,7 @@ def remove_files_not_in_links(directory, static_dir, linked_fnames):
                 print(f"Removing {filename} from {obsidian_to_hugo.hugo_content_dir}")
                 os.remove(full_path)
             elif ext in (".png", ".jpg", ".jpeg", ".gif"):
-                if False:
+                if True:
                     new_path_image = os.path.join(static_dir, filename)
                     print(f"Moving {filename} to {new_path_image}")
                     os.rename(full_path, new_path_image)

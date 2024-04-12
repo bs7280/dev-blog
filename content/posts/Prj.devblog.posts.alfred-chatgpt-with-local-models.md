@@ -86,8 +86,9 @@ If you haven't already, install the [Alfred ChatGPT / DALL-E Workflow](https://a
 Now find the environmont variable customization pane by clicking the button that looks like `{ X } `
 
 Open workflow configuration
-![/posts/Pasted image 20240412165809.png]({{< ref "/posts/Pasted image 20240412165809.png" >}})
-
+​<!--
+![./Pasted image 20240412165809.png]({{< ref "./Pasted image 20240412165809.png" >}})
+-->
 
 Go to the Environment Variables tab and change the values for:
 - `chatgpt_api_endpoint` to `http://localhost:11434`
@@ -95,7 +96,9 @@ Go to the Environment Variables tab and change the values for:
 	- This is the model we downloaded above, you can change this to other models you download locally.
 
 Example:
+​<!--
 ![Pasted image 20240412165952.png]({{< ref "Pasted image 20240412165952.png" >}})
+-->
 
 Now try to run the workflow...
 ## Result
